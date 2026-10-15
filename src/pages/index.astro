@@ -1,0 +1,150 @@
+---
+import '../styles/site.css';
+import '../styles/fusion.css';
+import WhatsAppIcon from '../components/WhatsAppIcon.astro';
+import FacebookIcon from '../../assets/web/icons/facebook.svg';
+import InstagramIcon from '../../assets/web/icons/instagram.svg';
+import TreatmentFace from '../components/TreatmentFace.astro';
+import { contact, whatsappUrl, mapUrl } from '../data/contact';
+import consultationPhoto from '../../assets/web/consultation-fictional-face.webp';
+import alejandroPhoto from '../../assets/web/foto-IMG_1655.webp';
+import danielPhoto from '../../assets/web/foto-IMG_1708.webp';
+import clinicEntrance from '../../assets/web/foto-IMG_1716.webp';
+import reception from '../../assets/web/video-02-recepcion.webp';
+import lounge from '../../assets/web/video-03-sala-espera.webp';
+import room from '../../assets/web/video-08-consultorio-luminoso.webp';
+import harmonizationIcon from '../../assets/web/treatments/icon-harmonization.webp';
+import chinIcon from '../../assets/web/treatments/icon-chin.webp';
+const arrow = 'M4 12h16m-6-6 6 6-6 6';
+const treatments = [
+  { id: 'botox', n: '01', name: 'Bótox', action: 'Relajar', subtitle: 'El movimiento', title: 'Suavizar desde el movimiento.', copy: 'Al expresarnos, los músculos del rostro se contraen y la piel se pliega. La toxina botulínica relaja temporalmente músculos seleccionados para suavizar líneas de expresión.', idea: 'Actúa sobre el movimiento muscular que marca la piel.', evaluation: 'Tus gestos, las líneas de expresión y las áreas que conviene tratar.', source: 'https://www.aad.org/public/cosmetic/wrinkles/botulinum-toxin-overview', sourceLabel: 'American Academy of Dermatology', label: 'Músculo seleccionado', state: 'Relajación muscular' },
+  { id: 'rellenos', n: '02', name: 'Rellenos subdérmicos', action: 'Aportar', subtitle: 'El volumen', title: 'Trabajar el volumen y el contorno.', copy: 'A veces lo que cambia es la plenitud de una zona o la definición de un contorno. Los rellenos aportan volumen bajo la piel en puntos seleccionados, de acuerdo con la anatomía de cada rostro.', idea: 'Añade volumen allí donde la valoración indica que puede ayudar.', evaluation: 'Las proporciones, el volumen de los tejidos y el producto adecuado.', source: 'https://www.aad.org/public/cosmetic/wrinkles/fillers-overview', sourceLabel: 'American Academy of Dermatology', label: 'Aporte de volumen', state: 'Volumen bajo la piel' },
+  { id: 'hilos', n: '03', name: 'Hilos rusos', action: 'Sostener', subtitle: 'Los tejidos', title: 'Dar soporte desde el interior.', copy: 'Cuando la preocupación está en el soporte de los tejidos, ciertos hilos colocados bajo la piel pueden ayudar a sostenerlos y reposicionarlos. Su indicación depende de la piel, la anatomía y el cambio que se busca.', idea: 'Trabaja con el soporte y la posición de los tejidos.', evaluation: 'La calidad de la piel, el soporte de los tejidos y los límites de esta opción.', source: 'https://www.plasticsurgery.org/cosmetic-procedures/thread-lift', sourceLabel: 'American Society of Plastic Surgeons', label: 'Hilo de soporte', state: 'Soporte de los tejidos' },
+];
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Comprende las diferencias entre bótox, rellenos subdérmicos e hilos rusos. Atención estética facial y cirugía con una valoración médica individual." />
+    <title>ID Maxilo — El cuidado empieza por escucharte</title>
+    <link rel="preload" href="/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/instrument-serif-regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%232e302b'/%3E%3Ctext x='32' y='43' text-anchor='middle' fill='%23f5f1e9' font-family='Georgia' font-size='34'%3Eid%3C/text%3E%3C/svg%3E" />
+  </head>
+  <body class="fusion">
+    <a class="skip-link" href="#contenido">Ir al contenido</a>
+    <header class="site-header">
+      <a href="#inicio" class="wordmark" aria-label="ID Maxilo, inicio"><span class="wordmark-id">ID</span><span class="wordmark-name">MAXILO<span>Estética & cirugía facial</span></span></a>
+      <nav class="desktop-nav" aria-label="Principal"><a href="#tratamientos">Tratamientos</a><a href="#equipo">Equipo médico</a><a href="#clinica">La clínica</a><a href="#contacto">Contacto</a></nav>
+      <a href="#valoracion" class="header-cta">Prepara tu consulta <svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow} /></svg></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú"><span></span><span></span></button>
+    </header>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Navegación móvil" hidden><a href="#tratamientos">Tratamientos</a><a href="#equipo">Equipo médico</a><a href="#clinica">La clínica</a><a href="#valoracion">Tu valoración</a><a href="#contacto">Contacto</a></nav>
+    <main id="contenido">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">ESTÉTICA FACIAL · CIRUGÍA PLÁSTICA Y MAXILOFACIAL</p>
+          <h1 id="hero-title">Aquí, el cuidado<br />empieza por<br /><em>escucharte.</em></h1>
+          <p class="hero-intro">Cuéntanos qué te gustaría cambiar, qué te preocupa o qué necesitas entender. Valoramos contigo las opciones para tu caso.</p>
+          <div class="hero-actions"><a class="primary-button" href={whatsappUrl || '#contacto'} target={whatsappUrl ? '_blank' : undefined} rel="noopener noreferrer">Agenda tu valoración<svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow}/></svg></a><a class="hero-secondary" href="#tratamientos">Conoce los tratamientos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a></div>
+          <p class="hero-signature">Tu primera visita puede empezar con una pregunta.</p>
+        </div>
+        <figure class="hero-image"><img src={room.src} width={room.width} height={room.height} alt="Consultorio real de ID Maxilo, luminoso y con equipo de atención junto a los ventanales" fetchpriority="high" /><figcaption class="hero-photo-note"><strong>Un espacio para ti</strong><span>Conoce el lugar donde te recibiremos.</span></figcaption></figure>
+      </section>
+      <section class="welcome-strip" aria-label="Nuestra forma de atender"><div><span>01</span><div><strong>Primero, escucharte</strong><p>Tus dudas y lo que buscas.</p></div></div><div><span>02</span><div><strong>Valorar tu caso</strong><p>Tu salud, tu rostro y tus opciones.</p></div></div><div><span>03</span><div><strong>Decidir con claridad</strong><p>Entender lo que cada opción puede aportar.</p></div></div></section>
+      <section class="care-intro" id="nosotros" aria-labelledby="care-intro-title">
+        <figure class="care-intro-photo"><img src={consultationPhoto.src} width={consultationPhoto.width} height={consultationPhoto.height} alt="Dr. Alejandro Campos durante la atención de una paciente en el consultorio" loading="lazy"/><figcaption>Una mirada individual, desde la primera valoración.</figcaption></figure>
+        <div class="care-intro-copy"><p class="eyebrow">UNA ATENCIÓN MÁS PERSONAL</p><h2 id="care-intro-title">No necesitas llegar<br />con un tratamiento<br /><em>elegido.</em></h2><p>Podemos empezar por tus dudas. La consulta nos permite conocer lo que buscas, revisar tu salud y explicarte qué opciones tienen sentido para ti.</p><p>Estética facial, cirugía plástica y cirugía oral y maxilofacial en un mismo espacio.</p><a class="intro-team-link" href="#equipo">Conoce al equipo médico<svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow}/></svg></a></div>
+      </section>
+      <section class="fusion-treatments-intro" aria-labelledby="understand-title">
+        <div class="fusion-section-heading"><div><p class="eyebrow">ENTENDER ANTES DE ELEGIR</p><h2 id="understand-title">Tres formas de actuar.<br /><em>Un rostro único.</em></h2></div><p>Movimiento, volumen y soporte son cosas diferentes. Descubre qué hay detrás de cada tratamiento y observa cómo funciona.</p></div>
+      </section>
+
+      <section class="treatment-explorer" id="tratamientos" aria-label="Comprender los tratamientos">
+        <div class="explorer-inner">
+          <div class="treatment-tabs" role="tablist" aria-label="Elegir tratamiento">{treatments.map((t,i)=><button role="tab" id={`tab-${t.id}`} aria-controls={`panel-${t.id}`} aria-selected={i===0?'true':'false'} tabindex={i===0?0:-1} data-treatment={t.id}><span>{t.n}</span><strong>{t.name}</strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow} /></svg></button>)}</div>
+          {treatments.map((t,i)=><div class="treatment-panel" role="tabpanel" id={`panel-${t.id}`} aria-labelledby={`tab-${t.id}`} hidden={i!==0} data-panel={t.id}>
+            <div class="treatment-copy"><p class="eyebrow">{t.subtitle.toUpperCase()}</p><h3>{t.action}<em>.</em></h3><h4>{t.title}</h4><p class="treatment-description">{t.copy}</p><div class="evaluation"><span class="eyebrow">EN LA VALORACIÓN</span><p>{t.evaluation}</p></div><a href="#valoracion" class="text-link">Prepara tu consulta<svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow} /></svg></a></div>
+            <div class="mechanism" data-mechanism={t.id}>
+              <div class="mechanism-heading"><span class="eyebrow">EL MECANISMO, EN ESENCIA</span><span class="mechanism-count">{t.n} / 03</span></div>
+              <div class="mechanism-visuals"><div class="tissue-study"><p class="visual-label"><span>01</span> BAJO LA PIEL</p><div class="diagram-stage">
+                <svg id={`diagram-${t.id}`} class="diagram" viewBox="0 0 580 380" role="img" aria-label={`Esquema conceptual: ${t.idea}`}>
+                  <defs><linearGradient id={`skin-${t.id}`} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ecd8c5"/><stop offset="1" stop-color="#8e7360"/></linearGradient><linearGradient id={`tissue-${t.id}`} x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#9c806d"/><stop offset="1" stop-color="#3d4039"/></linearGradient><linearGradient id={`volume-${t.id}`} x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e49b7d"/><stop offset="1" stop-color="#ac634b"/></linearGradient></defs>
+                  <g class="diagram-base"><path d="M62 214 L150 164 L515 189 L430 246Z" fill="#3c4038"/><path d="M62 214 L430 246 L430 307 L62 271Z" fill="#383c34"/><path d="M430 246 L515 189 L515 248 L430 307Z" fill="#45473f"/></g>
+                  <path class="skin-top" data-skin-top fill={`url(#skin-${t.id})`}/><path class="skin-front" data-skin-front fill={`url(#tissue-${t.id})`} /><path class="skin-side" data-skin-side fill="#b49780"/>
+                  <g class="surface-lines" data-surface-lines fill="none" stroke="#f2e4d7" stroke-width=".75" opacity=".4"></g>
+                  {t.id==='botox'&&<g class="muscle" fill="none" stroke="#db9779" stroke-width="2.3" stroke-linecap="round">{[0,1,2,3,4].map(n=><path data-muscle={n}/>)}<path class="muscle-callout" d="M290 274 V320 H398" stroke="#a9ad99" stroke-width="1"/><text x="406" y="324" class="svg-label">Músculo</text></g>}
+                  {t.id==='rellenos'&&<g class="filler"><ellipse data-filler cx="270" cy="227" rx="74" ry="25" fill={`url(#volume-${t.id})`} opacity=".9"/><path d="M272 254 V320 H370" fill="none" stroke="#a9ad99" stroke-width="1"/><text x="378" y="324" class="svg-label">Volumen</text></g>}
+                  {t.id==='hilos'&&<g class="threads" fill="none" stroke="#dfaa87" stroke-width="2"><path data-thread="0"/><path data-thread="1"/><path data-thread="2"/><path d="M285 251 V320 H381" stroke="#a9ad99" stroke-width="1"/><text x="389" y="324" class="svg-label">Soporte</text></g>}
+                  <path d="M87 175 L47 153 V119" fill="none" stroke="#a9ad99" stroke-width="1"/><text x="32" y="103" class="svg-label">Piel</text>
+                </svg>
+              </div>
+              </div><TreatmentFace treatment={t.id} /></div>
+              <div class="animation-explorer">
+                <div class="animation-explorer-heading"><span data-animation-phase>Explora el cambio</span><span>Desliza para comparar</span></div>
+                <label class="animation-scrub"><span>Inicio</span><input type="range" min="0" max="100" value="0" step="1" data-animation-scrub aria-label={`Explorar la animación conceptual de ${t.name}`} aria-controls={`diagram-${t.id} face-${t.id}`} /><span>Acción</span></label>
+              </div>
+              <p class="mechanism-idea">{t.idea}</p>
+              <div class="mechanism-controls">
+                <button type="button" class="action-button" data-action data-active="false" data-treatment-name={t.name} aria-controls={`diagram-${t.id} face-${t.id}`} aria-label={`Ver cómo funciona: ${t.name}`}>
+                  <span class="action-icon" aria-hidden="true"><svg class="action-play" viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z"/></svg><svg class="action-reset" viewBox="0 0 24 24"><path d="M5 10a7 7 0 1 1 1 7M5 5v5h5"/></svg></span>
+                  <span class="action-copy"><span class="action-label" data-action-label>Ver cómo funciona</span><span class="action-description" data-action-description>{t.id === 'botox' ? 'Explora el movimiento muscular' : t.id === 'rellenos' ? 'Explora el aporte de volumen' : 'Explora el soporte de los tejidos'}</span></span>
+                  <svg class="action-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d={arrow}/></svg>
+                </button>
+                <span class="mechanism-state" role="status" aria-live="polite" aria-atomic="true" data-state-default={t.label} data-state-active={t.state}>{t.label}</span>
+              </div>
+              <p class="diagram-note">Ambas ilustraciones son conceptuales. No representan anatomía exacta ni predicen resultados.</p>
+            </div>
+            <a href="#tratamientos" class="next-treatment" data-select-treatment={treatments[(i+1)%3].id}><span><span class="eyebrow">{i===2?'VOLVER A EXPLORAR':'LA SIGUIENTE IDEA'}</span><strong>{treatments[(i+1)%3].action}: {treatments[(i+1)%3].name}</strong></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow}/></svg></a>
+            <div class="treatment-footnote"><p>La indicación, técnica, riesgos y cuidados se revisan en consulta.</p><a href={t.source} target="_blank" rel="noreferrer">Referencia: {t.sourceLabel}<span aria-hidden="true"> ↗</span></a></div>
+          </div>)}
+        </div>
+      </section>
+
+      <section class="perspective section-shell"><p class="eyebrow section-tag">OTRAS OPCIONES</p><div><h2>Un plan que mira<br /><em>el conjunto.</em></h2><div class="additional-options"><article><figure class="option-icon" aria-hidden="true"><img src={harmonizationIcon.src} width={harmonizationIcon.width} height={harmonizationIcon.height} loading="lazy" alt=""/></figure><div><h3>Armonización facial</h3><p>Un plan individual que puede reunir distintas opciones, cuando conviene combinarlas.</p></div></article><article><figure class="option-icon" aria-hidden="true"><img src={chinIcon.src} width={chinIcon.width} height={chinIcon.height} loading="lazy" alt=""/></figure><div><h3>Lipopapada</h3><p>Valoración de la zona bajo el mentón. La técnica pertinente se define en consulta.</p></div></article></div></div></section>
+
+      <section class="team" id="equipo" aria-labelledby="team-title">
+        <div class="team-heading"><p class="eyebrow">EL EQUIPO MÉDICO</p><h2 id="team-title">Los médicos que<br /><em>te acompañan.</em></h2><p class="team-intro">Dos especialidades para valorar la estética, la estructura y la función del rostro.</p></div>
+        <div class="team-layout"><div class="doctor-profiles">
+          <article><figure class="doctor-photo"><img src={alejandroPhoto.src} width={alejandroPhoto.width} height={alejandroPhoto.height} loading="lazy" alt="Dr. Alejandro Campos Apaez con uniforme gris y equipo de magnificación durante la atención"/></figure><div class="doctor-body"><p class="eyebrow">CIRUGÍA PLÁSTICA, ESTÉTICA Y RECONSTRUCTIVA</p><h3><span>Dr. Alejandro</span>Campos Apaez</h3><div class="experience"><strong>30</strong><p>años de experiencia<br />en cirugía plástica</p></div><p>Cursó su especialidad en la Escuela Médico Militar. En consulta valora opciones estéticas, reconstructivas y de cirugía facial de acuerdo con cada caso.</p><details class="credentials"><summary>Certificación del especialista<span>+</span></summary><p>Consejo Mexicano de Cirugía Plástica, Estética y Reconstructiva. Certificado núm. 1663, vigente del 1 de abril de 2023 al 31 de marzo de 2028.</p><a class="credential-source" href="https://directoriocirugiaplastica.mx/doctores/estado/baja%20california/" target="_blank" rel="noopener noreferrer">Consultar directorio del Consejo<svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow}/></svg></a></details></div></article>
+          <article><figure class="doctor-photo"><img src={danielPhoto.src} width={danielPhoto.width} height={danielPhoto.height} loading="lazy" alt="Dr. Daniel Guzmán Sánchez con uniforme turquesa durante la atención maxilofacial"/></figure><div class="doctor-body"><p class="eyebrow">CIRUGÍA ORAL Y MAXILOFACIAL</p><h3><span>Dr. Daniel</span>Guzmán Sánchez</h3><p>Cirujano dentista militar y especialista en cirugía oral y maxilofacial. Su trayectoria incluye la jefatura de servicios de la especialidad en hospitales militares de Ensenada y Chilpancingo.</p><details class="credentials"><summary>Formación y cédulas profesionales<span>+</span></summary><div class="credential-education"><p><strong>Odontología · 2011</strong>Escuela Militar de Odontología. Cédula profesional 7227179.</p><p><strong>Cirugía oral y maxilofacial · 2018</strong>Escuela Militar de Graduados de Sanidad y Hospital Central Militar. Especialidad concluida con doble mención honorífica. Cédula de especialidad 11085500.</p></div><a class="credential-source" href="https://www.doctoralia.com.mx/perfil/daniel-guzman-sanchez" target="_blank" rel="noopener noreferrer">Consultar perfil profesional<svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow}/></svg></a></details></div></article>
+        </div></div>
+      </section>
+
+      <section class="care section-shell" aria-labelledby="care-title"><p class="eyebrow section-tag">ATENCIÓN ESPECIALIZADA</p><div><h2 id="care-title">Una visión completa<br /><em>del rostro.</em></h2><p class="section-intro">La estética facial forma parte de una atención que también considera la estructura, la función y la salud.</p><div class="care-accordion"><details><summary><span><span class="accordion-number">01</span>Cirugía estética facial</span><span class="accordion-plus">+</span></summary><div class="accordion-content"><p>Cada procedimiento parte de una evaluación clínica: objetivos, alternativas, riesgos y recuperación.</p><ul class="procedure-list"><li>Rejuvenecimiento facial</li><li>Perfil mandibofacial</li><li>Mentoplastia</li><li>Cirugía ortognática</li><li>Blefaroplastia</li><li>Frontoplastia</li></ul></div></details><details><summary><span><span class="accordion-number">02</span>Cirugía funcional y trauma facial</span><span class="accordion-plus">+</span></summary><div class="accordion-content"><p>Valoración y atención de fracturas mandibulares, frontoorbitarias, malares, maxilares y nasales. Revisamos las estructuras afectadas y los estudios disponibles para definir la atención.</p><p class="care-note">Ante una lesión reciente que requiera atención inmediata, acude a un servicio de urgencias.</p></div></details><details><summary><span><span class="accordion-number">03</span>Atención dental especializada</span><span class="accordion-plus">+</span></summary><div class="accordion-content"><p>La clínica también reúne opciones para el cuidado y la rehabilitación dental. En consulta podemos orientarte sobre el área de atención adecuada para tu caso.</p><ul class="procedure-list"><li>Implantes dentales</li><li>Ortodoncia</li><li>Resinas y prótesis</li><li>Endodoncia</li><li>Periodoncia</li><li>Blanqueamiento dental</li></ul></div></details></div></div></section>
+
+      <section class="clinic" id="clinica" aria-labelledby="clinic-title"><div class="clinic-heading"><div><p class="eyebrow">EL ESPACIO DE ATENCIÓN</p><h2 id="clinic-title">Conoce el espacio<br /><em>antes de venir.</em></h2></div><p>De la entrada a la sala de espera: conoce un poco más del espacio antes de tu primera visita.</p></div><div class="clinic-gallery"><figure><img src={reception.src} width={reception.width} height={reception.height} loading="lazy" alt="Recepción de la clínica con mostrador oscuro y decoración cálida"/><figcaption><span>01</span>Recepción</figcaption></figure><figure><img src={lounge.src} width={lounge.width} height={lounge.height} loading="lazy" alt="Sala de espera con asientos e iluminación cálida"/><figcaption><span>02</span>Sala de espera</figcaption></figure><figure><img src={clinicEntrance.src} width={clinicEntrance.width} height={clinicEntrance.height} loading="lazy" alt="Acceso a ID Maxilo desde el pasillo del edificio"/><figcaption><span>03</span>El acceso</figcaption></figure></div><p class="photo-note">Fotografías de la clínica con edición generativa.</p></section>
+
+      <section class="consultation" id="valoracion" aria-labelledby="consultation-title"><div><p class="eyebrow">TU PRIMER PASO</p><h2 id="consultation-title">Prepara tu<br /><em>primera visita.</em></h2></div><div class="consultation-copy"><p>Organiza tus preguntas, antecedentes y tratamientos previos con una guía que puedes guardar y llevar a consulta.</p><button class="primary-button" data-open-guide>Preparar mi valoración<svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow}/></svg></button><div class="preview-note"><span class="status-dot" aria-hidden="true"></span><p><strong>Una guía para conversar con calma.</strong> Guarda tus preguntas y lleva la información que ayudará a conocer mejor tu caso.</p></div></div></section>
+      <section class="contact-section" id="contacto" aria-labelledby="contact-title">
+        <div class="contact-inner">
+          <div class="contact-intro">
+            <p class="eyebrow">CONTACTO</p>
+            <h2 id="contact-title">Tu primera visita<br />puede empezar<br /><em>con una pregunta.</em></h2>
+            <p class="contact-description">Escríbenos qué te gustaría valorar. Te orientaremos sobre cómo programar tu consulta y qué información llevar.</p>
+            {whatsappUrl ? <a class="whatsapp-button" href={whatsappUrl} target="_blank" rel="noopener noreferrer"><WhatsAppIcon/><span>Hablar por WhatsApp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow}/></svg></a> : <button class="whatsapp-button" type="button" disabled aria-describedby="whatsapp-pending"><WhatsAppIcon/><span>Hablar por WhatsApp</span></button>}
+            {!whatsappUrl && <p id="whatsapp-pending" class="contact-pending">El número oficial de WhatsApp está pendiente de confirmación.</p>}
+          </div>
+          <div class="contact-details">
+            <p class="contact-details-title">Para encontrarnos</p>
+            <dl>
+              <div><dt>WhatsApp</dt><dd>{whatsappUrl ? <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">{contact.whatsapp}</a> : <span class="contact-unconfirmed">Por confirmar</span>}</dd></div>
+              <div><dt>Dirección</dt><dd>{contact.address}{mapUrl && <a class="contact-map-link" href={mapUrl} target="_blank" rel="noopener noreferrer">Cómo llegar<svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow}/></svg></a>}</dd></div>
+              <div><dt>Horario de atención</dt><dd>{contact.hours || <a href={whatsappUrl || '#contacto'} target="_blank" rel="noopener noreferrer">Consulta disponibilidad por WhatsApp</a>}</dd></div>
+              <div><dt>Correo electrónico</dt><dd>{contact.email ? <a href={`mailto:${contact.email}`}>{contact.email}</a> : <span class="contact-unconfirmed">Por confirmar</span>}</dd></div>
+            </dl>
+            <div class="contact-socials" aria-label="Redes sociales de la clínica"><a href={contact.facebook} target="_blank" rel="noopener noreferrer"><FacebookIcon class="social-brand-icon" aria-hidden="true"/><span>Facebook</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow}/></svg></a><a href={contact.instagram} target="_blank" rel="noopener noreferrer"><InstagramIcon class="social-brand-icon" aria-hidden="true"/><span>Instagram</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow}/></svg></a></div>
+            <a href="#valoracion" class="contact-guide-link">¿Es tu primera visita? Prepara tu valoración<svg viewBox="0 0 24 24" aria-hidden="true"><path d={arrow}/></svg></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    {whatsappUrl ? <a class="whatsapp-floating" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Contactar a ID Maxilo por WhatsApp"><WhatsAppIcon/><span>WhatsApp</span></a> : <button class="whatsapp-floating" type="button" disabled aria-label="WhatsApp: número oficial pendiente de confirmar" title="Número oficial pendiente de confirmar"><WhatsAppIcon/><span>WhatsApp</span></button>}
+    <footer><a href="#inicio" class="footer-brand">ID Maxilo<span>Nombre provisional</span></a><p>Estética facial · Cirugía plástica<br />Cirugía oral y maxilofacial</p><a href="#inicio" class="back-top">Volver al inicio<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4m-6 6 6-6 6 6"/></svg></a></footer>
+    <dialog id="consultation-guide" aria-labelledby="guide-title"><button class="dialog-close" aria-label="Cerrar guía"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button><p class="eyebrow">PARA TU PRIMERA CONSULTA</p><h2 id="guide-title">Llegar con preguntas.<br /><em>Salir con claridad.</em></h2><p class="guide-intro">Esta guía te ayuda a organizar la conversación con el equipo médico.</p><label for="guide-topic">¿Qué te gustaría valorar?</label><select id="guide-topic"><option>Quiero orientación para mi caso</option><option>Bótox</option><option>Rellenos subdérmicos</option><option>Hilos rusos</option><option>Lipopapada</option><option>Cirugía facial</option><option>Cirugía funcional o trauma facial</option></select><ol class="guide-list"><li><span>01</span><div><strong>Lo que buscas</strong><p>Piensa qué te gustaría mejorar y qué esperas de la atención.</p></div></li><li><span>02</span><div><strong>Tu historia de salud</strong><p>Lleva información sobre medicamentos, alergias, tratamientos previos y estudios disponibles.</p></div></li><li><span>03</span><div><strong>Lo que necesitas saber</strong><p>Pregunta por alternativas, límites, riesgos, cuidados y recuperación.</p></div></li></ol><button class="primary-button guide-download">Guardar mi guía<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/></svg></button><p class="guide-note">Se descarga en tu dispositivo. No se envía información ni se programa una cita.</p><p class="download-status" role="status"></p></dialog>
+    <script>import '../scripts/site';</script>
+  </body>
+</html>

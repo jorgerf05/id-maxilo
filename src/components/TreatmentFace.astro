@@ -1,0 +1,68 @@
+---
+import modelFront from '../../assets/web/treatments/model-front.webp';
+import modelQuarter from '../../assets/web/treatments/model-quarter.webp';
+interface Props { treatment: string; }
+const { treatment } = Astro.props;
+const isFront = treatment === 'botox';
+const isLift = treatment === 'hilos';
+const copy: Record<string, { title: string; angle: string; zone: string; steps: string[] }> = {
+  botox: { title: 'El movimiento se relaja', angle: 'FRENTE Y ENTRECEJO', zone: 'Movimiento · Expresión', steps: ['La expresión', 'La relajación', 'Las líneas'] },
+  rellenos: { title: 'El volumen da forma', angle: 'REGIÓN DEL PÓMULO', zone: 'Volumen · Proyección', steps: ['El volumen', 'La proyección', 'El contorno'] },
+  hilos: { title: 'El soporte acompaña el contorno', angle: 'MEJILLA Y MANDÍBULA', zone: 'Soporte · Contorno', steps: ['El tejido', 'El soporte', 'El contorno'] },
+};
+const c = copy[treatment];
+const asset = (isFront ? modelFront : modelQuarter).src;
+---
+<figure class={`face-study face-study--${treatment}`} data-face-study={treatment}>
+  <figcaption class="visual-label"><span>02</span> EN EL ROSTRO <button class="face-compare" type="button" data-face-compare aria-controls={`face-${treatment}`} aria-pressed="false" disabled>Ver inicio</button></figcaption>
+  <div id={`face-${treatment}`} class="face-viewport" data-face data-face-type={treatment} data-face-source={asset} role="img" aria-label={`Ilustración conceptual de ${c.zone.toLowerCase()}. Usa el control para explorar el cambio.`}>
+    <div class="face-camera" data-face-camera>
+      <img class="face-sculpture" data-face-fallback src={asset} width="600" height="700" alt="" aria-hidden="true" loading="eager" decoding="async" />
+      <canvas class="face-canvas" data-face-canvas width="600" height="700" aria-hidden="true"></canvas>
+      <svg class="face-overlays" viewBox="0 0 600 700" aria-hidden="true">
+        <defs>
+          <radialGradient id={`face-glow-${treatment}`}><stop stop-color="#ebb28d" stop-opacity=".42"/><stop offset=".62" stop-color="#e9ad85" stop-opacity=".15"/><stop offset="1" stop-color="#e9ad85" stop-opacity="0"/></radialGradient>
+          <linearGradient id={`face-vector-${treatment}`} x1="0" y1="1" x2="1" y2="0"><stop stop-color="#e7a37a" stop-opacity=".15"/><stop offset=".6" stop-color="#efb28b"/><stop offset="1" stop-color="#ffe3c5"/></linearGradient>
+          <filter id={`face-soft-${treatment}`} x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2"/></filter>
+        </defs>
+        {isFront ? <>
+          <g class="face-expression-lines" data-face-wrinkles fill="none" stroke-linecap="round">
+            <path d="M225 151Q300 138 375 151M221 166Q300 151 379 166M235 180Q300 168 365 180"/>
+            <path d="M288 197Q283 209 286 224M312 197Q317 209 314 224"/>
+          </g>
+          <g class="face-treatment-layer" data-face-treatment>
+            <ellipse cx="300" cy="170" rx="103" ry="58" fill={`url(#face-glow-${treatment})`}/>
+            <g class="face-relaxation" fill="none" stroke="#f5d4b4" stroke-width="1.6">
+              <path d="M224 151Q300 138 376 151M221 166Q300 151 379 166M236 180Q300 168 364 180"/>
+            </g>
+          </g>
+        </> : isLift ? <>
+          <g class="face-treatment-layer" data-face-treatment>
+            <ellipse cx="344" cy="340" rx="68" ry="96" transform="rotate(38 344 340)" fill={`url(#face-glow-${treatment})`}/>
+            <g class="face-support-vectors" fill="none" stroke={`url(#face-vector-${treatment})`} stroke-width="2.6">
+              {['M275 383C320 358 355 320 389 280','M257 400C312 379 360 342 401 300','M283 407C336 390 379 359 409 328'].map((d, i) => <path d={d} pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" data-face-thread={i}/>) }
+            </g>
+            <g class="face-vector-tips" fill="none" stroke="#ffe0bd" stroke-width="2"><path d="m378 282 11-2 1 11M390 302l11-2 1 11M398 330l11-2 1 11"/></g>
+          </g>
+          <path class="face-baseline" data-face-ghost d="M219 420C266 419 322 403 361 374" fill="none" stroke="#d9b395" stroke-width="1.1" stroke-dasharray="3 7"/>
+        </> : <>
+          <g class="face-treatment-layer" data-face-treatment>
+            <ellipse cx="281" cy="285" rx="78" ry="58" transform="rotate(-23 281 285)" fill={`url(#face-glow-${treatment})`}/>
+            <g class="face-volume-contours" fill="none" stroke="#f3d3b2" stroke-width="1.6">
+              <path d="M222 291C233 261 278 245 316 261C342 273 325 300 290 312C253 324 222 316 222 291Z"/>
+              <path d="M238 289C247 268 279 260 302 270C319 278 307 297 285 304C258 313 238 306 238 289Z"/>
+              <path d="M255 287C264 276 282 273 292 279C301 285 290 295 278 298C266 302 255 296 255 287Z"/>
+            </g>
+          </g>
+          <path class="face-baseline" data-face-ghost d="M218 275C219 303 230 325 247 341" fill="none" stroke="#d9b395" stroke-width="1.1" stroke-dasharray="3 7"/>
+        </>}
+      </svg>
+    </div>
+    <div class="face-image-caption" aria-hidden="true"><span class="face-zone-dot"></span>{c.angle}</div>
+    <span class="face-illustration-label" aria-hidden="true">ESTUDIO ILUSTRATIVO</span>
+  </div>
+  <div class="face-story">
+    <p class="face-caption">{c.title}</p>
+    <div class="face-story-steps" aria-label="Etapas de la animación">{c.steps.map((step, i) => <span data-face-step={i} class:list={{ 'is-current': i === 0 }}><b>0{i + 1}</b><span>{step}</span></span>)}</div>
+  </div>
+</figure>

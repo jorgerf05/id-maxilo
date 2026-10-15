@@ -1,0 +1,203 @@
+/* Exploración de la distribución cálida de legacy con fotografía y motor actuales. */
+body.fusion {
+  --paper: #f8f6f0;
+  --ink: #243a36;
+  --dark: var(--ink);
+  --demo-panel: #2d4640;
+  --demo-line: #58736a;
+  --muted: #62726c;
+  --accent: #a57b4d;
+  --line: #dadcd1;
+  background: var(--paper);
+}
+.fusion .site-header { height: 94px; max-width: 1440px; padding-inline: 6%; }
+.fusion .header-cta { background: var(--ink); color: var(--paper); border-radius: 40px; padding: 14px 20px; gap: 12px; }
+.fusion .header-cta:hover { background: #36544b; color: white; }
+.fusion .hero { max-width: 1380px; padding: 62px 6% 76px; grid-template-columns: .98fr 1fr; gap: 7%; align-items: center; }
+.fusion .hero-copy { padding: 0; }
+.fusion .hero h1 { font-size: clamp(59px, 6.2vw, 88px); line-height: 1.01; margin: 26px 0 25px; letter-spacing: -.035em; }
+.fusion .hero-intro { max-width: 435px; font-size: 15px; line-height: 1.9; color: var(--muted); }
+.fusion .hero-actions .primary-button { margin-top: 0; min-width: 0; gap: 21px; }
+.fusion .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 17px 22px; margin-top: 30px; }
+.fusion .primary-button { border-radius: 40px; padding: 17px 23px; font-size: 12px; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
+.fusion .primary-button:hover { background: #36544b; }
+.fusion .hero-secondary { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; border-bottom: 1px solid #c9b595; padding: 10px 0; }
+.fusion .hero-secondary svg { width: 17px; }
+.fusion .hero-signature { margin-top: 32px; padding-left: 16px; font-size: 11px; max-width: 370px; }
+.fusion .hero-image { margin: 0; width: min(100%, 310px); height: auto; justify-self: center; overflow: visible; border-radius: 0; background: transparent; }
+.fusion .hero-image img { width: 100%; height: auto; object-fit: contain; border-radius: 7px; }
+.fusion .hero-image .hero-photo-note strong, .fusion .hero-image .hero-photo-note span { display: block; }
+.fusion .hero-image .hero-photo-note span { margin-top: 3px; }
+.fusion .hero-image .hero-photo-note { position: static; max-width: none; padding: 14px 0 0; background: transparent; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.fusion .hero-image .hero-photo-note strong { color: var(--ink); font-size: 11px; font-weight: 600; }
+.fusion .welcome-strip { display: grid; grid-template-columns: repeat(3, 1fr); padding: 0 max(6%, calc((100vw - 1214px)/2)); background: #eeeee5; border-block: 1px solid var(--line); }
+.fusion .welcome-strip > div { padding: 27px 24px; display: flex; align-items: flex-start; gap: 17px; }
+.fusion .welcome-strip > div > span { font-size: 10px; color: var(--accent); padding-top: 3px; }
+.fusion .welcome-strip > div + div { border-left: 1px solid var(--line); }
+.fusion .welcome-strip strong { display: block; font-size: 13px; font-weight: 600; }
+.fusion .welcome-strip p { margin-top: 5px; font-size: 11px; color: var(--muted); line-height: 1.7; }
+.fusion .care-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 9%; align-items: center; max-width: 1380px; margin: auto; padding: 100px 6%; }
+.fusion .care-intro-photo { position: relative; min-width: 0; }
+.fusion .care-intro-photo img { width: 100%; height: auto; object-fit: contain; border-radius: 5px; }
+.fusion .care-intro-photo figcaption { margin-top: 12px; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.fusion .care-intro-copy h2 { font-size: clamp(45px, 4.4vw, 62px); margin: 23px 0; }
+.fusion .care-intro-copy > p:not(.eyebrow) { margin-top: 16px; font-size: 14px; color: var(--muted); line-height: 1.85; }
+.fusion .intro-team-link { display: inline-flex; align-items: center; gap: 15px; margin-top: 27px; padding-bottom: 9px; border-bottom: 1px solid var(--accent); font-size: 12px; }
+.fusion .intro-team-link svg { width: 18px; }
+.fusion .team { background: #eaeae1; padding: 85px max(6%, calc((100vw - 1214px)/2)) 90px; }
+.fusion .team-heading { display: block; max-width: 780px; margin: 0 0 39px; }
+.fusion .team-heading h2 { width: auto; font-size: clamp(46px, 4.7vw, 65px); margin-top: 20px; }
+.fusion .team-intro { max-width: 600px; color: var(--muted); font-size: 14px; margin-top: 21px; }
+.fusion .team-layout { display: block; }
+.fusion .doctor-profiles { display: grid; grid-template-columns: 1fr; gap: 30px; }
+.fusion .doctor-profiles > article { display: grid; grid-template-columns: minmax(230px, 350px) minmax(0, 1fr); align-items: center; padding: 0; border: 0; background: var(--paper); min-width: 0; }
+.fusion .doctor-profiles > article + article { margin: 0; padding-top: 0; border: 0; }
+.fusion .doctor-photo { margin: 0; overflow: hidden; }
+.fusion .doctor-photo img { width: 100%; height: auto; object-fit: contain; }
+.fusion .doctor-photo figcaption { font-size: 10px; color: var(--muted); padding: 10px 27px 0; }
+.fusion .doctor-body { padding: 32px 48px; }
+.fusion .doctor-body > .eyebrow { color: #87704e; font-size: 9px; }
+.fusion .doctor-body h3 { font-size: 39px; line-height: 1.06; margin: 19px 0; }
+.fusion .doctor-body h3 span { font-size: 25px; display: block; margin-bottom: 6px; }
+.fusion .doctor-body > p:not(.eyebrow) { font-size: 13px; color: var(--muted); line-height: 1.8; }
+.fusion .doctor-body .experience { margin: 20px 0; }
+.fusion .doctor-body .experience strong { font-size: 55px; color: var(--accent); }
+.fusion .doctor-body .credentials { margin-top: 23px; }
+.fusion .fusion-treatments-intro { max-width: 1380px; margin: auto; padding: 88px 6% 54px; }
+.fusion .fusion-section-heading { display: grid; grid-template-columns: 1.2fr 1fr; column-gap: 8%; align-items: end; }
+.fusion .fusion-section-heading .eyebrow { grid-column: 1 / -1; margin-bottom: 21px; }
+.fusion .fusion-section-heading h2 { font-size: clamp(46px, 4.7vw, 65px); }
+.fusion .fusion-section-heading > p:not(.eyebrow) { font-size: 13px; color: var(--muted); max-width: 390px; padding-bottom: 4px; }
+.fusion .additional-options { gap: 20px; align-items: stretch; }
+.fusion .additional-options article { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; border: 1px solid #dcded2; border-radius: 12px; padding: 28px; background: #eeeee5; }
+.fusion .option-icon { width: 70px; height: 70px; flex: 0 0 auto; }
+.fusion .option-icon img { width: 100%; height: 100%; object-fit: contain; }
+.fusion .additional-options h3 { font-size: 29px; }
+.fusion .additional-options p { font-size: 13px; line-height: 1.8; margin-top: 13px; max-width: none; }
+.fusion .care { padding-top: 85px; padding-bottom: 85px; }
+.fusion .clinic { background: #eeede5; padding-top: 85px; padding-bottom: 80px; }
+.fusion .clinic-heading h2 { font-size: clamp(46px, 4.7vw, 65px); }
+.fusion .clinic-gallery { grid-template-columns: 1fr 1fr 1.4fr; align-items: center; gap: 27px; }
+.fusion .clinic-gallery img, .fusion .clinic-gallery figure:first-child img { width: 100%; height: auto; object-fit: contain; border-radius: 5px; }
+.fusion .clinic-gallery figure:first-child { grid-column: auto; }
+.fusion .consultation { background: #f2e9d9; padding-top: 78px; padding-bottom: 78px; }
+.fusion .consultation h2 { font-size: clamp(46px, 4.7vw, 65px); }
+.fusion .contact-section { background: #243a36; }
+.fusion .contact-intro h2 em { color: #d7bc96; }
+.fusion .whatsapp-button { border-radius: 40px; background: #dcc4a0; color: #243a36; border-color: #dcc4a0; }
+.fusion .whatsapp-floating { border-radius: 40px; }
+
+/* The demonstration shares the site's deep green, including its portrait and controls. */
+.fusion .mechanism { background: var(--demo-panel); border-color: var(--demo-line); }
+.fusion .treatment-tabs,
+.fusion .evaluation,
+.fusion .treatment-footnote,
+.fusion .mechanism-heading,
+.fusion .mechanism-controls,
+.fusion .animation-explorer { border-color: var(--demo-line); }
+.fusion .face-study { border-color: var(--demo-line); }
+.fusion .face-viewport { background: radial-gradient(ellipse at 50% 40%, #3a5950, var(--ink) 75%); }
+.fusion .face-image-caption { background: #243a36ce; border-color: #c9d6cf40; }
+.fusion .face-compare { background: var(--ink); border-color: #aec3b970; }
+.fusion .face-compare:not(:disabled):hover,
+.fusion .face-compare[aria-pressed=true] { background: #ece4d3; color: var(--ink); }
+.fusion .action-button,
+.fusion .action-button[data-active=true] .action-icon { color: var(--ink); }
+.fusion .action-icon { background: var(--ink); border-color: var(--ink); }
+.fusion .action-description { color: #50665d; }
+.fusion .animation-scrub input::-webkit-slider-thumb { border-color: var(--demo-panel); }
+.fusion .animation-scrub input::-moz-range-thumb { border-color: var(--demo-panel); }
+@media (max-width: 1050px) {
+  .fusion .hero { gap: 5%; padding-top: 45px; }
+  .fusion .hero h1 { font-size: 68px; }
+  .fusion .hero-intro { font-size: 14px; }
+  .fusion .hero-actions { gap: 10px 16px; }
+  .fusion .care-intro { gap: 6%; }
+}
+@media (max-width: 800px) {
+  .fusion .site-header { height: 86px; }
+  .fusion .hero { grid-template-columns: 1fr 1fr; padding-block: 38px 48px; gap: 5%; }
+  .fusion .hero h1 { font-size: 55px; margin-block: 21px; }
+  .fusion .hero-actions { margin-top: 22px; }
+  .fusion .hero-signature { margin-top: 22px; }
+  .fusion .hero-intro { font-size: 13px; }
+  .fusion .hero-secondary { font-size: 11px; }
+  .fusion .welcome-strip > div { padding: 23px 14px; }
+  .fusion .care-intro { padding-block: 70px; gap: 6%; }
+  .fusion .care-intro-copy h2 { font-size: 45px; }
+  .fusion .care-intro-copy > p:not(.eyebrow) { font-size: 13px; }
+  .fusion .team { padding-block: 65px; }
+  .fusion .doctor-profiles { gap: 20px; }
+  .fusion .doctor-body { padding: 25px 22px; }
+  .fusion .doctor-body h3 { font-size: 34px; }
+  .fusion .fusion-treatments-intro { padding-block: 67px 39px; }
+}
+@media (max-width: 600px) {
+  .fusion .site-header { height: 78px; }
+  .fusion .hero { grid-template-columns: 1fr; gap: 25px; padding-top: 24px; padding-bottom: 36px; }
+  .fusion .hero-copy { order: 0; }
+  .fusion .hero h1 { font-size: clamp(44px, 12.3vw, 58px); margin: 16px 0; max-width: 460px; }
+  .fusion .hero-intro { max-width: 440px; font-size: 13px; line-height: 1.8; }
+  .fusion .hero-actions { gap: 10px 17px; margin-top: 23px; }
+  .fusion .hero-actions .primary-button { padding: 15px 19px; font-size: 11px; }
+  .fusion .hero-secondary { font-size: 10px; gap: 6px; }
+  .fusion .hero-secondary svg { width: 15px; }
+  .fusion .hero-signature { display: none; }
+  .fusion .hero-image { order: 1; width: min(100%, 225px); height: auto; margin-top: 9px; }
+  .fusion .hero-image .hero-photo-note { font-size: 9px; padding: 11px 0 0; }
+  .fusion .welcome-strip { grid-template-columns: 1fr; padding-inline: 6%; }
+  .fusion .welcome-strip > div { padding: 17px 0; display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: baseline; }
+  .fusion .welcome-strip > div + div { border-left: 0; border-top: 1px solid var(--line); }
+  .fusion .welcome-strip strong { font-size: 11px; }
+  .fusion .welcome-strip p { font-size: 10px; margin-top: 4px; }
+  .fusion .care-intro { padding-block: 55px; grid-template-columns: 1fr; gap: 30px; }
+  .fusion .care-intro-copy h2 { margin: 19px 0; font-size: 43px; }
+  .fusion .care-intro-copy > p:not(.eyebrow) { font-size: 13px; }
+  .fusion .care-intro-photo figcaption { font-size: 9px; }
+  .fusion .team { padding-block: 54px; }
+  .fusion .team-heading h2 { font-size: 45px; }
+  .fusion .team-intro { font-size: 13px; }
+  .fusion .doctor-profiles { grid-template-columns: 1fr; gap: 25px; }
+  .fusion .doctor-profiles > article { grid-template-columns: 1fr; }
+  .fusion .doctor-body { padding: 27px 23px; }
+  .fusion .doctor-body h3 { font-size: 38px; }
+  .fusion .fusion-treatments-intro { padding-top: 55px; }
+  .fusion .fusion-section-heading { display: block; }
+  .fusion .fusion-section-heading h2 { font-size: 45px; }
+  .fusion .fusion-section-heading > p:not(.eyebrow) { margin-top: 20px; font-size: 13px; }
+  .fusion .additional-options { gap: 15px; margin-top: 29px; }
+  .fusion .additional-options article { flex-direction: row; gap: 20px; padding: 23px 20px; }
+  .fusion .option-icon { width: 56px; height: 56px; }
+  .fusion .additional-options h3 { font-size: 27px; }
+  .fusion .additional-options p { font-size: 12px; }
+  .fusion .care { padding-top: 56px; padding-bottom: 56px; }
+  .fusion .clinic { padding-block: 56px; }
+  .fusion .clinic-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px 16px; align-items: start; }
+  .fusion .clinic-gallery figure:last-child { grid-column: 1 / -1; }
+  .fusion .clinic-heading h2 { font-size: 45px; }
+  .fusion .consultation { padding-block: 55px; }
+  .fusion .consultation h2 { font-size: 45px; }
+}
+@media (max-width: 360px) {
+  .fusion .site-header .header-cta { display: none; }
+  .fusion .site-header .menu-toggle { margin-left: auto; }
+}
+
+
+/* Información de contacto y credenciales ampliables. */
+.fusion .credential-source { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 17px; font-size: 10px; color: var(--ink); border-bottom: 1px solid #c9b595; padding-bottom: 5px; }
+.fusion .credential-source svg { width: 15px; height: 15px; }
+.fusion .contact-map-link { display: flex; align-items: center; gap: 13px; width: fit-content; margin-top: 12px; color: #e1c59c; font-size: 12px; }
+.fusion .contact-map-link svg { width: 17px; height: 17px; }
+.fusion .contact-socials { display: flex; flex-wrap: wrap; gap: 13px 24px; padding-block: 20px; border-top: 1px solid #626d57; }
+.fusion .contact-socials a { display: inline-flex; gap: 12px; align-items: center; font-size: 12px; color: #e1c59c; }
+.fusion .contact-socials a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.fusion .contact-socials svg { width: 15px; height: 15px; transform: rotate(-45deg); }
+@media (max-width: 600px) {
+  .fusion .credential-source { font-size: 11px; }
+}
+.fusion .credential-education { padding-bottom: 4px; }
+.fusion .credential-education p { line-height: 1.8; padding-bottom: 15px; }
+.fusion .credential-education strong { display: block; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+
+.fusion .contact-socials .social-brand-icon { width: 18px; height: 18px; fill: currentColor; stroke: none; transform: none; }
