@@ -4,7 +4,7 @@
 export function createFaceRenderer(face: HTMLElement, treatment: string) {
   const canvas = face.querySelector<HTMLCanvasElement>('[data-face-canvas]')!;
   const image = face.querySelector<HTMLImageElement>('[data-face-fallback]')!;
-  const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: false, antialias: false });
+  const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: true });
   let current = 0;
   let draw: ((action: number) => void) | undefined;
   const ready = (async () => {
@@ -74,6 +74,7 @@ export function createFaceRenderer(face: HTMLElement, treatment: string) {
       gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
       gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
       gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+      gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL,true);
       gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,image);
       gl.uniform1i(gl.getUniformLocation(program,'portrait'),0);
       gl.uniform1f(gl.getUniformLocation(program,'treatment'),treatment==='botox'?0:treatment==='rellenos'?1:2);
